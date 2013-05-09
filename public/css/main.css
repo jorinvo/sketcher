@@ -1,0 +1,13 @@
+body {
+    background: rgb(247, 247, 245);
+	-moz-user-select:none; -webkit-user-select:none; -ms-user-select:none;
+}
+
+.sketch {
+	background: white;
+    border: 1px solid;
+}
+
+#result {
+	display: none;
+}
