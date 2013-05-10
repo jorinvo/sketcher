@@ -1,19 +1,30 @@
 $(function () {
 
+    // VARIABLES
+
     var pos, mousedown;
+    var $navbar = $('.navbar');
+    var $create = $('#create');
     var $sketch = $('#sketch');
-    var $url = $('#url');
-    var $result = $('#result');
     var ctx = $sketch[0].getContext('2d');
+
+
+    // SETUP
 
     ctx.beginPath();
     ctx.lineWidth = 5;
     ctx.lineCap = 'round';
 
+    var res = window.innerHeight - $navbar.outerHeight() - 10;
+    $sketch.attr({
+        width: window.innerWidth,
+        height: res
+    });
+
 
     // EVENTS
 
-    $('#create').on('click', createSketch);
+    $create.on('click', createSketch);
     $sketch.on({
         'touchstart': startLine,
         'touchmove': drawLine,
@@ -25,15 +36,10 @@ $(function () {
 
     function createSketch (e) {
         e.preventDefault();
-        // post request
         var dataString = $sketch[0].toDataURL().replace(/^data:image\/png;base64,/,"");
-
-        $.post('/sketches/create', { data: dataString }, function (res) {
-            // res
-            $result.show();
-            $url.val(res).select();
+        $.post('/sketches/create', { data: dataString }, function (url) {
+            window.location = url;
         });
-        // show popup
     }
 
     function startLine (e) {
@@ -53,6 +59,5 @@ $(function () {
     function endLine (e) {
         mousedown = false;
     }
-
 
 });
