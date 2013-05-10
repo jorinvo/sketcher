@@ -1,4 +1,5 @@
-// use MONGO_NODE_DRIVER_HOST and MONGO_NODE_DRIVER_PORT env vars to for GridFS
+var url = require('url');
+
 
 var config = {
 
@@ -12,6 +13,17 @@ var config = {
 	sketchesUrl: 'http://localhost:3000/sketches'
 
 };
+
+
+// GridFS config:
+
+var mongoUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
+
+if (mongoUrl) {
+	var components = url.parse(mongoUrl);
+	process.env.MONGO_NODE_DRIVER_HOST = components.hostname;
+	process.env.MONGO_NODE_DRIVER_PORT = components.port;
+}
 
 
 module.exports = config;
