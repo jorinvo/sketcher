@@ -2,7 +2,7 @@
 
 var config = {
 
-	port: 3000,
+	port: process.env.PORT || 3000,
 	viewsDir: __dirname + '/views',
 	publicDir: __dirname + '/public',
 	sizeLimit: '5mb',
