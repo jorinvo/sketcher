@@ -21,7 +21,7 @@ var mongoUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 
 if (mongoUrl) {
 	var components = url.parse(mongoUrl);
-	process.env.MONGO_NODE_DRIVER_HOST = components.hostname;
+	process.env.MONGO_NODE_DRIVER_HOST = components.host;
 	process.env.MONGO_NODE_DRIVER_PORT = components.port;
 }
 
