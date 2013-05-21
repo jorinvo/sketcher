@@ -9,8 +9,7 @@ var config = {
 	sizeLimit: '5mb',
 	imageFormat: 'png',
 	dbName: 'sketcher',
-	fileCollection: 'pictures',
-	sketchesUrl: 'http://localhost:3000/sketches'
+	fileCollection: 'pictures'
 
 };
 

@@ -57,7 +57,7 @@ app.post('/sketches/create', function (req, res) {
 	var data = new Buffer(req.body.data, 'base64');
 	file.end(data);
 
-	var sketchUrl = config.sketchesUrl + '/' + id;
+	var sketchUrl = '/sketches/' + id;
 	res.end(sketchUrl);
 
 });

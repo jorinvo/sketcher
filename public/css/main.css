@@ -12,16 +12,21 @@ html, body {
 body {
 	-moz-user-select:none; -webkit-user-select:none; -ms-user-select:none;
 	font-family: Arial "Sans Serif";
+	background: #F3F3F3;
 	text-align: center;
+}
+
+a {
+	text-decoration: none;
 }
 
 .navbar {
 	background: #00007E;
-	height: 5%;
+	height: 40px;
 }
 
 .brand {
-	font-size: 1em;
+	font-size: 18px;
 	color: #fff;
 	margin: 10px 0 0 10px;
 	float: left;
@@ -32,12 +37,6 @@ body {
 	float: right;
 }
 
-.note {
-	color: #FFAB2D;
-	font-size: 0.7em;
-	margin: 0;
-	padding-top: 14px;
-}
 
 .sketch {
 	background: #fff;
@@ -45,5 +44,18 @@ body {
 
 .pic {
 	max-width: 100%;
-	max-height: 95%;
+	max-height: 100%;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	background: rgb(184, 0, 0);
+	width: 100%;
+}
+
+.note {
+	color: #FFEC62;
+	font-size: 12px;
+	margin: 5px;
 }
