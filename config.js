@@ -7,22 +7,22 @@ var config = {
 	viewsDir: __dirname + '/views',
 	publicDir: __dirname + '/public',
 	sizeLimit: '5mb',
-	imageFormat: 'png',
-	dbName: 'sketcher',
-	fileCollection: 'pictures'
+	imageFormat: '.png'
 
 };
 
+var mongo = {};
 
-// GridFS config:
+var mongoUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/sketcher';
+var components = url.parse(mongoUrl);
+var auth = components.auth ? components.auth.split(':') : [];
 
-var mongoUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
+mongo.host =  components.hostname;
+mongo.port =  components.port;
+mongo.dbname =  components.pathname.replace('/', '');
+mongo.user =  auth[0];
+mongo.pass =  auth[1];
 
-if (mongoUrl) {
-	var components = url.parse(mongoUrl);
-	process.env.MONGO_NODE_DRIVER_HOST = components.auth + '@' + components.hostname;
-	process.env.MONGO_NODE_DRIVER_PORT = components.port;
-}
-
+config.mongo = mongo;
 
 module.exports = config;
