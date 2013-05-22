@@ -83,10 +83,7 @@ console.log('app is listening on port: ' + config.port);
 
 function storeFile (name, data, cb) {
 	connect(name, 'w', function (err, gs) {
-		gs.write(data, function (err, res) {
-			// console.log('e: ', err)
-			console.log('r: ', res)
-		});
+		gs.write(data, function (err, res) {});
 		gs.close(cb);
 	});
 }
